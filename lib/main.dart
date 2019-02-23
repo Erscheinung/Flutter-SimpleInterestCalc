@@ -37,7 +37,9 @@ class _SIFormState extends State<SIForm> {
 
             getImageAsset(),
 
-            TextField(
+            Padding(
+                padding: EdgeInsets.only(top: _minimumPadding, bottom: _minimumPadding),
+                child:TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Principal",
@@ -46,9 +48,11 @@ class _SIFormState extends State<SIForm> {
                   borderRadius: BorderRadius.circular(5.0)
                 )
               ),
-            ),
+            )),
 
-            TextField(
+            Padding(
+                padding: EdgeInsets.only(top: _minimumPadding, bottom: _minimumPadding),
+                child:TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Rate of Interest",
@@ -57,11 +61,44 @@ class _SIFormState extends State<SIForm> {
                   borderRadius: BorderRadius.circular(5.0)
                 )
               )
-            ),
+            )),
 
+            Row(
+              children: <Widget>[
+
+                Expanded(child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: "Term",
+                        hintText: "Time in Years",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0)
+                        )
+                    ),
+                  )),
+
+                Expanded(child: DropdownButton<String>(
+                  items: _currencies.map(String value) {
+                    return DropdownMenuItem<String> (
+                      value: value,
+                      child: Text(value),
+                    );
+                }).toList(),
+
+                value: "Rupees",
+
+                onChanged: (String newValueSelected) {
+                  //
+                },
+
+                ))
+
+
+              ],
+            )),
 
           ],
-        )
+        ),
       ),
     );
   }

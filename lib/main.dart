@@ -236,7 +236,7 @@ class _SIFormState extends State<SIForm> {
   }
 
   Widget getImageAsset() {
-    AssetImage assetImage = AssetImage('images/money.png');
+    AssetImage assetImage = AssetImage('images/money.jpg');
     Image image = Image(
       image: assetImage,
       width: 125.0,
@@ -263,7 +263,7 @@ class _SIFormState extends State<SIForm> {
     double totalAmountPayable = principal + (principal * roi * term) / 100;
 
     String result =
-        "After $term years, uyour investment will be worth $totalAmountPayable $_currentItemSelected";
+        "After $term years, your investment will be worth $totalAmountPayable $_currentItemSelected";
     return result;
   }
 
